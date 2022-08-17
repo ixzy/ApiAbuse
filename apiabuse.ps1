@@ -180,7 +180,7 @@ function Creds(){
  Write-Host '                                                                    '
  Write-Host 'Made By Xsint & 0x00'
  Write-Host '                    '
- Write-Host 'Honorable Mentions: Xtc Viktor,CC513,Retromane'
+ Write-Host 'Honorable Mentions: Xtc Viktor,Retromane'
  Write-Host '                    '
  $GoToMain = Read-Host 'Press 1 to go to main menu and 0 to exit'
  if($GoToMain -eq 1){Main}else{exit}
