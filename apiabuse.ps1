@@ -82,12 +82,10 @@ function WebHookDel($web){
 }
 
 function lock($auth,$grcid){
-$host.UI.RawUI.WindowTitle = 'Akeno ApiAbuse | GcLocker'
-$api = "https://discordapp.com/api/v8/channels/"
-$gcid = $grcid
-$end = '/recipients/1337?'
-$headers = $auth
-while(1-eq1){$req = Invoke-WebRequest -Method Put -Uri $api$gcid$end$headers}
+$param1 = $auth
+$param2 = $grcid
+write-Host 'bro go brr get brr'
+main
 }
 
 
